@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id "org.flywaydb.flyway" version "4.2.0"
+}
+
+flyway {
+	url = 'jdbc:sqlite:file:./target/foobar'
+	user = 'sa'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+idea.module.inheritOutputDirs = true
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+repositories {
+	mavenCentral()
+	maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.0')
+
+	runtime 'org.xerial:sqlite-jdbc:3.8.11.2'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
