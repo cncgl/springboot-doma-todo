@@ -15,14 +15,14 @@ plugins {
 }
 
 flyway {
-	url = 'jdbc:sqlite:file:./target/foobar'
-	user = 'sa'
+	url = 'jdbc:sqlite:test.db'
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'org.flywaydb.flyway'
 idea.module.inheritOutputDirs = true
 
 version = '0.0.1-SNAPSHOT'
