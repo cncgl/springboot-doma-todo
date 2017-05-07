@@ -20,6 +20,9 @@ public interface ReservationDao {
     @Select
     List<Reservation> selectByName(String name);
 
+    @Select
+    Reservation find(int id);
+
     @Insert
     @Transactional
     int insert(Reservation reservation);
