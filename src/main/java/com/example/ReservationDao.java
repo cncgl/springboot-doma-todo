@@ -1,9 +1,6 @@
 package com.example;
 
-import org.seasar.doma.Dao;
-import org.seasar.doma.Delete;
-import org.seasar.doma.Insert;
-import org.seasar.doma.Select;
+import org.seasar.doma.*;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,9 +21,13 @@ public interface ReservationDao {
     @Select
     Reservation find(int id);
 
-    @Insert
+    @Insert(sqlFile = true)
     @Transactional
     int insert(Reservation reservation);
+
+    @Update(sqlFile = true)
+    @Transactional
+    int update(Reservation reservation);
 
     @Delete(sqlFile = true)
     @Transactional

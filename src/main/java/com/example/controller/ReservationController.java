@@ -28,6 +28,19 @@ public class ReservationController {
         return reservationDao.find(id);
     }
 
+    @RequestMapping(method=RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation create(@RequestBody Reservation entity) {
+        reservationDao.insert(entity);
+        return entity;
+    }
+
+    @RequestMapping(method=RequestMethod.PUT, value="{id}")
+    public Reservation update(@PathVariable int id, @RequestBody Reservation entity) {
+        entity.id = id;
+        reservationDao.update(entity);
+        return entity;
+    }
 
     @RequestMapping(method=RequestMethod.DELETE, value="{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
