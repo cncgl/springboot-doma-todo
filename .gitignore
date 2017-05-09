@@ -2,6 +2,7 @@
 !gradle/wrapper/gradle-wrapper.jar
 gradle-app.setting
 dataSources/
+out/
 
 ### STS ###
 .apt_generated
