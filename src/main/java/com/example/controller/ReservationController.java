@@ -29,4 +29,8 @@ public class ReservationController {
     public Reservation show(@PathVariable int id) {
         return reservationDao.find(id);
     }
+
+
+    @RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+    public void destroy(@PathVariable int id) {}
 }
