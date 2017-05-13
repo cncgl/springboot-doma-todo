@@ -1,5 +1,6 @@
 package com.example;
 
+import lombok.Getter;
 import org.seasar.doma.*;
 
 /**
@@ -10,7 +11,9 @@ import org.seasar.doma.*;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private final Integer id;
+    @Getter
     private final String name;
 
     @Override

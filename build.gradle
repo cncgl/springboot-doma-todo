@@ -40,6 +40,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.0')
+	compile("org.projectlombok:lombok:1.16.16")
 
 	// runtime 'org.xerial:sqlite-jdbc:3.8.11.2'
 	runtime 'mysql:mysql-connector-java:6.0.6'

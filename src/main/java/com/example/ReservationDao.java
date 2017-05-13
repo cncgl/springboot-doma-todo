@@ -22,7 +22,8 @@ public interface ReservationDao {
     @Select
     Reservation find(int id);
 
-    @Insert(sqlFile = true)
+    // @Insert(sqlFile = true)
+    @Insert
     @Transactional
     Result<Reservation> insert(Reservation reservation);
     // int insert(Reservation reservation);
