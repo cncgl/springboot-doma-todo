@@ -1,4 +1,5 @@
-CREATE TABLE Reservation (
-  id integer primary key,
-  name varchar(100) not null
+CREATE TABLE reservation (
+  id int not null auto_increment,
+  name varchar(100) not null,
+  primary key (id)
 );

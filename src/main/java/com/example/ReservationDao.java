@@ -2,6 +2,7 @@ package com.example;
 
 import org.seasar.doma.*;
 import org.seasar.doma.boot.ConfigAutowireable;
+import org.seasar.doma.jdbc.Result;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -23,13 +24,16 @@ public interface ReservationDao {
 
     @Insert(sqlFile = true)
     @Transactional
-    int insert(Reservation reservation);
+    Result<Reservation> insert(Reservation reservation);
+    // int insert(Reservation reservation);
 
     @Update(sqlFile = true)
     @Transactional
-    int update(Reservation reservation);
+    Result<Reservation> update(Reservation reservation);
+    // int update(Reservation reservation);
 
     @Delete(sqlFile = true)
     @Transactional
-    int delete(Reservation reservation);
+    Result<Reservation> delete(Reservation reservation);
+    // int delete(Reservation reservation);
 }

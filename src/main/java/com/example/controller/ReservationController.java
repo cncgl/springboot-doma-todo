@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.Reservation;
 import com.example.ReservationDao;
+import org.seasar.doma.jdbc.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -31,14 +32,17 @@ public class ReservationController {
     @RequestMapping(method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation create(@RequestBody Reservation entity) {
-        reservationDao.insert(entity);
+        System.out.println("before:" + entity);
+        Result result = reservationDao.insert(entity);
+        System.out.println("after:" + result);
         return entity;
     }
 
     @RequestMapping(method=RequestMethod.PUT, value="{id}")
     public Reservation update(@PathVariable int id, @RequestBody Reservation entity) {
-        entity.id = id;
-        reservationDao.update(entity);
+        System.out.println("before:" + entity);
+        Result result = reservationDao.update(entity);
+        System.out.println("after:" + result);
         return entity;
     }
 

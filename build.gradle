@@ -15,7 +15,8 @@ plugins {
 }
 
 flyway {
-	url = 'jdbc:sqlite:test.db'
+	// url = 'jdbc:sqlite:test.db'
+	url = 'jdbc:mysql://localhost:3306/doma-todo?user=doma&password=doma&useSSL=false'
 }
 
 apply plugin: 'java'
@@ -40,7 +41,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.0')
 
-	runtime 'org.xerial:sqlite-jdbc:3.8.11.2'
+	// runtime 'org.xerial:sqlite-jdbc:3.8.11.2'
+	runtime 'mysql:mysql-connector-java:6.0.6'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
